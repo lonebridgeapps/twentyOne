@@ -1,0 +1,88 @@
+/* General */
+.contentOverlay{
+    height: 100%;
+    background-color:rgba(0,0,0,0.75);
+    position: relative;
+}
+
+.button-fab {
+    position: fixed;
+    bottom:0;
+    right:0;
+    margin:0 20px 20px 0;
+    z-index:20;
+}
+
+/* Meal Tracker */
+.font-table-cell-main{font-size: 16px; font-weight:bold;}
+.font-table-cell-sub{font-size: 12px;}   
+    
+/* Calorie Table */
+.item-padding-top {padding-top: 50px;}
+.table-heading {font-weight: bold;}
+.highlight {
+    background-color: lightgoldenrodyellow;
+    border-left: solid 1px goldenrod;
+    border-right: solid 1px goldenrod;
+}
+    
+/* Food List */
+.hideSearch {display:none;}
+.showSearch {display:block;}
+
+.item-padding-top {padding-top: 50px;}
+.font-table-cell-main{font-size: 16px; font-weight:bold;}
+.font-table-cell-sub{font-size: 12px;}
+    
+/* Home */
+.mainContent {
+    background-color: lightgray;
+    background-image: url('../img/food2.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.btnDetail{
+    color: #ffffff;
+    font-size:12px;
+}
+
+.icon-home{
+    font-size: 40px;
+}
+    
+/* Daily Tracker */
+#background {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 75%;
+    height: 100%;
+    background-color: pink;
+    z-index: 1;
+}
+
+#content {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+}
+    
+/* User */
+.userWrapper{
+    background-image: url('../img/food1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.item-padding-top {padding-top: 50px;} 
+.item-padding-top-100 {padding-top: 100px}
+
+/* User Profile */
+.profilePlaceholder {font-size: 110px; background-color: lightgray; padding:20px;} 
+
+
+/* User Data */
