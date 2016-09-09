@@ -1,0 +1,55 @@
+<ion-view view-title="User Data">
+    <ion-content class="has-header userWrapper" on-swipe-right="vm.goBack()" on-swipe-left="vm.goForward()">
+        <div class="contentOverlay">
+
+            <div class="card">
+                <form id="frmAddWeight" name="frmAddWeight" ng-submit="vm.addWeight(frmAddWeight.$valid)" novalidate>
+                    <div class="list list-inset">
+                        <label class="item item-input">
+                            <span class="input-label">Date</span>
+                            <input type="date" id="userDate" name="userDate" ng-model="vm.userForm.Date" required>
+                        </label>
+                        
+                        <label class="item item-input">
+                            <span class="input-label">Weight</span>
+                            <input type="number" id="userWeight" name="userWeight" ng-model="vm.userForm.Weight" required>
+                        </label>
+                        
+                        <div id="msg">
+                            <p class="text-center" ng-show="frmAddWeight.userDate.$invalid && !userForm.name.$pristine" class="help-block">Date is required.</p>
+                            <p class="text-center" ng-show="frmAddWeight.userWeight.$invalid && !userForm.name.$pristine" class="help-block">Weight is required.</p>
+                        </div>
+                        
+                        <div class="padding">
+                            <button type="submit" class="button button-outline button-positive button-block" ng-disabled="frmAddWeight.$invalid">
+                                Add User Weight
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="card">
+                <ul class="list text-center">
+                    <li class="item">
+                        <div class="row">
+                            <div class="col">Date</div>
+                            <div class="col">Weight</div>
+                        </div>
+                    </li>
+                    <li class="item" ng-repeat="ud in vm.testData">
+                        <div class="row">
+                            <div class="col">{{ud.date}}</div>
+                            <div class="col">{{ud.weight}}</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <button type="button" class="button button-balanced button-fab">
+            <i class="icon ion-plus"></i>
+        </button>
+    </ion-content>
+</ion-view>

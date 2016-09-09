@@ -1,0 +1,73 @@
+<ion-view view-title="Meal Tracker">
+    <ion-content class="has-header" ng-controller="mealController">
+    
+    <div class="list">
+        <form id="frmMeal" name="frmMeal" ng-submit="addMeal(frmMeal.$valid)" novalidate>
+            
+            <label class="item item-input">
+                <span class="input-label">Date</span>
+                <input type="date" id="txtDate" name="txtDate" ng-model="meal.date" required>
+            </label>
+            
+            <label class="item item-input item-select">
+                <div class="input-label">Meal</div>
+                <select id="selMealOpt" name="selMealOpt" ng-model="meal.meal" required ng-change="loadMeal()">
+                    <option>...</option>
+                    <option>Meal 1</option>
+                    <option>Meal 2</option>
+                    <option>Meal 3</option>
+                    <option>Meal 4</option>
+                    <option>Meal 5</option>
+                    <option>Meal 6</option>
+                </select>
+            </label>
+            
+            <label class="item item-input item-select">
+                <div class="input-label">Container</div>
+                <select id="selContainerOpt" name="selContainerOpt" ng-model="meal.container" required>
+                    <option>...</option>
+                    <option>Green</option>
+                    <option>Purple</option>
+                    <option>Yellow</option>
+                    <option>Red</option>
+                    <option>Blue</option>
+                    <option>Orange</option>
+                    <option>Spoon</option>
+                    <option>Water</option>
+                </select>
+            </label>
+            
+            
+            <label class="item item-input">
+                <span class="input-label">Food</span>
+                <input id="txtFood" name="txtFood" type="text" ng-model="meal.food" required>
+            </label>
+            <!-- 
+            <div id="msg" class="padding">
+                <p class="text-center" ng-show="frmMeal.txtDate.$invalid && frmMeal.$submitted" class="help-block">Date is required.</p>
+                <p class="text-center" ng-show="frmMeal.selMealOpt.$invalid && frmMeal.$submitted" class="help-block">Meal is required.</p>
+                <p class="text-center" ng-show="frmMeal.selContainerOpt.$invalid && frmMeal.$submitted" class="help-block">Container is required.</p>
+                <p class="text-center" ng-show="frmMeal.txtFood.$invalid && frmMeal.$submitted" class="help-block">Food is required.</p>
+            </div>
+            -->
+            <div class="padding">
+                <button class="button button-outline button-balanced button-block icon ion-plus" ng-disabled="frmMeal.$invalid"> Add Meal Details</button>
+            </div>
+
+        </form>
+        
+        
+    </div>
+    
+    
+    <div class="text-center">date and meal placeholder</div>
+    <div class="list">
+        <div class="item item-divider"></div>
+        <div class="item" ng-repeat="d in data">
+            <div class="font-table-cell-main">{{d.food}}</div>
+            <div class="font-table-cell-sub">{{d.container}}</div>
+        </div>
+    </div>
+    
+    </ion-content>
+</ion-view>

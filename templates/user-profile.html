@@ -1,0 +1,161 @@
+<ion-view view-title="User Profile">
+    <ion-content class="has-header" on-swipe-right="vm.goBack()" on-swipe-left="vm.goForward()">
+        <div class="card">
+            <h4>USER PROFILE</h4>
+
+            <form id="frmProfile" name="frmProfile" ng-submit="vm.saveProfile()">
+                <label class="item item-input">
+                    <span class="input-label">Name</span>
+                    <input type="text" id="profileName" name="profileName" ng-model="vm.profile.name" required>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Start Date</span>
+                    <input type="date" id="profileStartDate" name="profileStartDate" ng-model="vm.profile.date" required>
+                    <span class="input-label"><i class="icon ion-calendar"></i></span>
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Start Weight</span>
+                    <input type="number" id="profileStartWeight" name="profileStartWeight" ng-model="vm.profile.weight" required>
+                    <span class="input-label">in lbs.</span>
+                </label>
+                <div class="item">
+                    <button type="submit" class="button button-outline button-balanced button-block icon ion-plus" ng-disabled="frmProfile.$invalid">
+                        Add Profile
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- calorie level -->
+        <div class="card">
+            <div class="item item-divider">
+                Calorie Level {{vm.profile.calorieLevel}}
+                <!--
+                <a class="item-icon-right" id="btnCalorieDetails" name="btnCalorieDetails" ng-click="vm.showCalorieTarget = !vm.showCalorieTarget"> 
+                    <i class="icon" ng-class="vm.showCalorieTarget ? 'ion-minus' : 'ion-plus'"></i>
+                </a>
+                -->
+            </div>
+            <div class="item" ><!--ng-show="vm.showCalorieTarget"-->
+                <div>{{vm.calorie.weight}} x 11 = Caloric Baseline</div>
+                <div>{{vm.calorie.baseline}} + 400(fix calorie burn) = Caloric Needs</div>
+                <div>{{vm.calorie.needs}} - 750(caloric deficit) = Calorie Target</div>
+            </div>
+        </div>
+            
+            <!-- before 
+        <div class="card">
+            <div class="item item-divider">"Before" Stats
+                <a class="item-icon-right" id="btnCalorieDetails" name="btnCalorieDetails" ng-click="vm.showBefore = !vm.showBefore"> 
+                    <i class="icon" ng-class="vm.showBefore ? 'ion-minus' : 'ion-plus'"></i>
+                </a>
+            </div>
+            <div class="item" ng-show="vm.showBefore">
+                <form id="frmTT_before" name="frmTT_before" ng-submit="">
+                    <label class="item item-input">
+                        <span class="input-label">Chest</span>
+                        <input type="number" id="b4_chest" name="b4_chest" ng-model="vm.tt_b4.chest" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Right Arm</span>
+                        <input type="number" id="b4_rightArm" name="b4_rightArm" ng-model="vm.tt_b4.rightArm" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Left Arm</span>
+                        <input type="number" id="b4_leftArm" name="b4_leftArm" ng-model="vm.tt_b4.leftArm" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Waist</span>
+                        <input type="number" id="b4_waist" name="b4_waist" ng-model="vm.tt_b4.waist" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Hips</span>
+                        <input type="number" id="b4_hips" name="b4_hips" ng-model="vm.tt_b4.hips" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Right Thigh</span>
+                        <input type="number" id="b4_rightThigh" name="b4_rightThigh" ng-model="vm.tt_b4.rightThigh" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Left Arm</span>
+                        <input type="number" id="b4_leftThigh" name="b4_leftThigh" ng-model="vm.tt_b4.leftThigh" required>
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Total Inches</span>
+                        <input type="number" id="b4_ttlInches" name="b4_ttlInches" ng-model="vm.tt_b4.ttlInches" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Weight</span>
+                        <input type="number" id="b4_ttlWeight" name="b4_ttlWeight" ng-model="vm.tt_b4.weight" required>
+                    </label>
+                    <div class="item">
+                        <button type="submit" class="button button-outline button-balanced button-block icon ion-plus" ng-disabled="frmTT_before.$invalid">
+                            Before Stats
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        -->
+
+        <!-- after 
+        <div class="card">
+            <div class="item item-divider">"After" Stats
+                <a class="item-icon-right" id="btnCalorieDetails" name="btnCalorieDetails" ng-click="vm.showAfter = !vm.showAfter"> 
+                    <i class="icon" ng-class="vm.showAfter ? 'ion-minus' : 'ion-plus'"></i>
+                </a>
+            </div>
+            <div class="item" ng-show="vm.showAfter">
+            
+                <form id="frmTT_after" name="frmTT_after" ng-submit="">
+                    <label class="item item-input">
+                        <span class="input-label">Chest</span>
+                        <input type="number" id="aft_chest" name="aft_chest" ng-model="vm.tt_aft.chest" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Right Arm</span>
+                        <input type="number" id="aft_rightArm" name="aft_rightArm" ng-model="vm.tt_aft.rightArm" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Left Arm</span>
+                        <input type="number" id="aft_leftArm" name="aft_leftArm" ng-model="vm.tt_aft.leftArm" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Waist</span>
+                        <input type="number" id="aft_waist" name="aft_waist" ng-model="vm.tt_aft.waist" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Hips</span>
+                        <input type="number" id="aft_hips" name="aft_hips" ng-model="vm.tt_aft.hips" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Right Thigh</span>
+                        <input type="number" id="aft_rightThigh" name="aft_rightThigh" ng-model="vm.tt_aft.rightThigh" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Left Arm</span>
+                        <input type="number" id="aft_leftThigh" name="aft_leftThigh" ng-model="vm.tt_aft.leftThigh" required>
+                    </label>
+                    
+                    <label class="item item-input">
+                        <span class="input-label">Total Inches</span>
+                        <input type="number" id="aft_ttlInches" name="aft_ttlInches" ng-model="vm.tt_aft.ttlInches" required>
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Weight</span>
+                        <input type="number" id="aft_ttlWeight" name="aft_ttlWeight" ng-model="vm.tt_aft.weight" required>
+                    </label>
+                    <div class="item">
+                        <button type="submit" class="button button-outline button-balanced button-block icon ion-plus" ng-disabled="frmTT_before.$invalid">
+                            After Stats
+                        </button>
+                    </div>
+                </form>
+            </div>
+        
+    </div>
+    -->
+    </ion-content>
+</ion-view>
+
